@@ -1,20 +1,32 @@
 package com.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
 
 @Entity
+@Table(name = "newstudent")
+
 public class Student {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Will auto increment the id field
 	private int id;
+
+//	change the name of field name to fullName
+	@Column(name = "FullName")
 	private String name;
 	private long phone;
 	private int age;
 
+//	No argument constructor 
 	public Student() {
 
 	}
 
+//	Parameterized constructor 
 	public Student(int id, String name, long phone, int age) {
 		this.id = id;
 		this.name = name;
@@ -22,6 +34,7 @@ public class Student {
 		this.age = age;
 	}
 
+//	Public getters and setters 
 	public int getId() {
 		return id;
 	}
