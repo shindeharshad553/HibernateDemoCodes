@@ -20,9 +20,13 @@ public class UpdateRecord {
 
 		int id = 2;
 		Student stud = s.get(Student.class, id);
-		stud.setName("karan");
-		s.update(stud);
-		tr.commit();
+		if(stud!=null){
+			stud.setName("karan");
+			s.update(stud);
+			tr.commit();
+		}else{
+			System.out.println("Id doesn't exists in table");
+		}
 
 	}
 
